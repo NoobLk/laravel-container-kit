@@ -32,10 +32,10 @@ jobs:
     - name: Build Docker image
       run: |
         PROJECT_NAME=$(basename ${{ github.repository }})
-        docker build -t ghcr.io/${{ github.repository_owner }}/php-nooblk:8.2-apache ./php-8.2-apachie
+        OWNER_LC=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+        docker build -t ghcr.io/$OWNER_LC/php-nooblk:8.2-apache ./php-8.2-apachie
 
-    # Push the Docker image
     - name: Push Docker image
       run: |
-        PROJECT_NAME=$(basename ${{ github.repository }})
-        docker push ghcr.io/${{ github.repository_owner }}/php-nooblk:8.2-apache
+        OWNER_LC=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+        docker push ghcr.io/$OWNER_LC/php-nooblk:8.2-apache
