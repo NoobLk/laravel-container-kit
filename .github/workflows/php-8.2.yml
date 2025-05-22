@@ -3,12 +3,12 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - php-8.2 # Trigger on push to main branch
-  workflow_dispatch: # Allow manual trigger
+      - php-8.2-apachie 
+  workflow_dispatch:
 
 permissions:
   contents: read
-  packages: write # Needed to push to GitHub Container Registry
+  packages: write 
   id-token: write
 
 jobs:
